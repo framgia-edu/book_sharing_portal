@@ -1,0 +1,36 @@
+<h2>Trang cá nhân của: <%= @user.name %></h2>
+<div class="row">
+  <div class="col-3">
+      <div class="field-avatar">
+        <% if @user.avatar? %>
+          <%= image_tag(@user.avatar.url) %>
+        <% else %>
+          <%= image_tag("default-avatar.jpg") %>
+        <% end %>
+      </div>
+  </div>
+  <div class="col-9">
+    <div>
+      giới thiệu: <%= @user.introduction %>
+    </div>
+  </div>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td>book upload</td>
+        <td><%= render @user.books %></td>
+      </tr>
+      <% if @user == current_user %>
+      <tr>
+        <td>bookmarks</td>
+        <td> <%= render current_user.mark_books %></td>
+      </tr>
+      <tr>
+        <td>book reviews</td>
+        <td><%= render current_user.review_books %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

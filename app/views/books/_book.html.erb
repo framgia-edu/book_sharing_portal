@@ -1,0 +1,26 @@
+<div class= "book-item">
+  <div class="container">
+  <% if book.cover? %>
+    <%= link_to image_tag( book.cover.thumb.url, class: "image",
+      lazy: true ), book %>
+  <% else %>
+    <%= link_to image_tag( "default_book_cover.jpg", class: "image",
+      lazy: true), book %>
+  <% end %>
+  <%= link_to book do %>
+    <div class="middle">
+      <div class="text">Read</div>
+    </div>
+  <% end %>
+  </div>
+  <div class="book-title">
+  <%= book.name %>
+  </div>
+
+  <% if current_user %>
+    <% if current_user.book_exist? book %>
+    <%= link_to "edit", edit_book_path(book) %>
+    <%= link_to "delete", book , method: :delete, data: { confirm: "you sure?" } %>
+    <% end %>
+  <% end %>
+</div>

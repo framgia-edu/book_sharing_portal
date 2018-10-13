@@ -1,0 +1,39 @@
+<h2>Upload My Book</h2>
+<%= form_for @book do |f| %>
+
+    <div class="form-upload">
+      <div class="field-name">
+        <%= f.label :name, "Book name" %><br />
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="field-file">
+      <%= f.label :cover , "Cover" %><br/>
+      <%= f.file_field :cover %>
+      </div>
+
+      <div class="field-file">
+      <%= f.label :content , "Book file" %><br/>
+      <%= f.file_field :content %>
+      </div>
+
+      <div class="field-number">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, class: "form-control" %>
+      </div>
+
+      <div class="field-intro">
+        <%= f.label :introduce %>
+        <%= f.text_area :introduce, cols: 20, rows: 10, class: "form-control" %>
+      </div>
+      <br/>
+
+      <div class="actions">
+        <%= f.submit "Upload", class: "btn btn-primary" %>
+      </div>
+
+    </div>
+<% end %>
+
+
+

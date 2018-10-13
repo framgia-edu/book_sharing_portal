@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_023532) do
+ActiveRecord::Schema.define(version: 2018_10_15_234932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
     t.string "name"
     t.string "introduce"
     t.string "cover"
-    t.string "content"
+    t.string "content", default: "", null: false
     t.integer "quantity"
     t.integer "status", default: 2, null: false
     t.bigint "user_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
   create_table "borrows", force: :cascade do |t|
     t.date "borrow_at"
     t.date "deadline_at"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.bigint "user_id"
     t.bigint "book_id"
     t.datetime "created_at", null: false
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "status"
+    t.integer "status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "interactions", force: :cascade do |t|
-    t.integer "rating"
-    t.string "comment"
+    t.integer "rating", default: 0, null: false
+    t.string "comment", default: "", null: false
     t.string "type", null: false
     t.bigint "user_id"
     t.bigint "book_id"
@@ -61,14 +61,14 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "info_type"
-    t.bigint "info_id"
+    t.string "listable_type"
+    t.bigint "listable_id"
     t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_lists_on_book_id"
-    t.index ["info_id", "info_type", "book_id"], name: "index_lists_on_info_id_and_info_type_and_book_id"
-    t.index ["info_type", "info_id"], name: "index_lists_on_info_type_and_info_id"
+    t.index ["listable_id", "listable_type"], name: "index_lists_on_listable_id_and_listable_type"
+    t.index ["listable_type", "listable_id"], name: "index_lists_on_listable_type_and_listable_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -76,12 +76,30 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
     t.string "avatar"
     t.string "address"
     t.string "introduction"
-    t.integer "status"
-    t.string "email"
-    t.string "password"
+    t.integer "status", default: 0, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.string "provider"
+    t.string "uid"
+    t.boolean "admin", default: false, null: false
+    t.string "remote_avatar"
+    t.index ["confirmation_token"], name: "index_people_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_people_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_people_on_unlock_token", unique: true
   end
-  add_foreign_key "lists", "books"
+
 end

@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :introduce
       t.string :cover
-      t.string :content
+      t.string :content, null: false, default: ""
       t.integer :quantity
       t.integer :status , null: false, default: 2
       t.references :user , index: true

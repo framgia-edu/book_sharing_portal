@@ -5,9 +5,7 @@ class CreatePeople < ActiveRecord::Migration[5.2]
       t.string :avatar
       t.string :address
       t.string :introduction
-      t.integer :status
-      t.string :email
-      t.string :password
+      t.integer :status, null: false, default: 0
       t.string :type, null: false
 
       t.timestamps

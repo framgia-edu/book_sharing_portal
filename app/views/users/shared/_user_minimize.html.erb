@@ -1,0 +1,17 @@
+<div>
+  <% if current_user.provider.nil? %>
+    <% if current_user.avatar? %>
+      <%= link_to image_tag( current_user.avatar.url , size: "40x40"), current_user %>
+    <% else %>
+      <%= link_to image_tag( "default-avatar.jpg" , size: "40x40"), current_user %>
+    <% end %>
+  <% else %>
+    <%= link_to image_tag( current_user.remote_avatar , size: "40x40"), current_user %>
+  <% end %>
+   <%= link_to current_user.name, edit_user_registration_path  %>
+   <% if current_user.admin %>
+     <%= image_tag( "admin.png" , size: "20x20") %>
+   <% else %>
+     <%= image_tag( "member.png" , size: "20x20") %>
+   <% end %>
+</div>

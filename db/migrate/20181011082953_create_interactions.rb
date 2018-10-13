@@ -5,8 +5,8 @@ class CreateInteractions < ActiveRecord::Migration[5.2]
       t.integer :rating
       t.string :comment
       t.string :type, null: false
-      t.string :comment
-      t.integer :rating
+      t.string :comment, null: false, default: ""
+      t.integer :rating, null: false, default: 0
       t.references :user, index: true
       t.references :book , index: true
 

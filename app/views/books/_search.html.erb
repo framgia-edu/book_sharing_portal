@@ -1,0 +1,10 @@
+<%= form_with url: books_path, method: :get, local: true do |f|%>
+  <div class="form-row">
+      <div class="col">
+      <%= f.text_field :search, id: :search, class: "form-control" %>
+      </div>
+      <div class="col">
+      <%= f.submit "search book", class: "btn-search" %>
+      </div>
+  </div>
+<% end %>

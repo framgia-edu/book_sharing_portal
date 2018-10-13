@@ -1,0 +1,90 @@
+<div class="book">
+<div class="book-cover">
+    <% if @book.cover? %>
+      <%= image_tag @book.cover.thumb.url %>
+    <% else %>
+      <%= image_tag "default_book_cover.jpg" %>
+    <% end %>
+</div>
+<div class= "book-detail">
+   <h4><%= @book.name %></h4>
+   <p>Rating: <%= @rating %>/10</p>
+   <p>author:
+   <% @book.people.each do |author| %>
+   <%= link_to author.name, author %>
+   <% end %>
+   </p>
+   <p>người đăng: <%= link_to @book.user.name, @book.user %></p>
+   <p>categories:
+   <% @book.categories.each do |category| %>
+   <%= link_to "##{category.name}", category %>
+   <% end %>
+   </p>
+   <p>giới thiệu:</p>
+   <div class="intro"><%= @book.introduce %></div>
+   <% if current_user %>
+   <p><%= button_to "Read", @book.content.url, method: :get, target: :_blank, class: "btn-read" %></p>
+
+   <p>
+    <% if user_signed_in? %>
+    <% if current_user.bookmark_exist? @book %>
+      <%= button_to "Hủy Bookmark", bookmarks_path(id: @book.id),
+       method: :post, class: "btn-bookmark-old" %>
+    <% else %>
+      <%= button_to "bookmark", bookmarks_path(id: @book.id),
+       method: :post, class: "btn-bookmark" %>
+    <% end %>
+    <% end %>
+    </p>
+    <% end %>
+</div>
+</div>
+<div class="col-sm-3 aside">
+  <div class="widget">
+    <div class="widget-body">
+      <div class="beta-sales beta-lists">
+       Share Book<%= social_share_button_tag(@book.name, :allow_sites => %w(twitter)) %>
+      </div>
+    </div>
+  </div>
+</div>
+<% if current_user %>
+<div class="review">
+    <%= form_with url: reviews_path , method: :post, local: true do |f| %>
+    <%= f.hidden_field :book_id , id: :book_id , value: @book.id %>
+    <%= f.hidden_field :user_id , id: :user_id , value: current_user.id %>
+    <div class="field-number">
+        <%= f.label :rating%>
+        <%= f.number_field :rating,  id: :rating, min: 0, max: 10,
+         value: @user_rating %>
+    </div>
+    <div class="field">
+        <%= f.label :comment %>
+        <%= f.text_area :comment, id: :comment, cols: 20, rows: 4,
+         value: @user_comment, class: "form-control" %>
+    </div>
+    <div class="action">
+      <%= f.submit "Review", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<% end %>
+<div class="review">
+  <table>
+  <% @reviews.each do |review| %>
+    <tr>
+    <div class="user_mini">
+     <% if review.user.avatar? %>
+      <%= link_to image_tag( review.user.avatar.url , size: "40x40"), review.user %>
+    <% else %>
+      <%= link_to image_tag( "default-avatar.jpg" , size: "40x40"), review.user %>
+    <% end %>
+    <%= review.user.name %>
+    #Rating <%= review.rating %>/10
+    </div>
+    <%= review.comment %>
+  </tr>
+  <% end %>
+  <div class="will-paginate"> <%= will_paginate @reviews %> </div>
+</table>
+</div>
