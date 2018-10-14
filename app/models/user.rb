@@ -1,4 +1,8 @@
 class User < Person
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2,
+   :twitter]
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :validatable
   has_many :borrows
   has_many :books
   has_many :bookmarks

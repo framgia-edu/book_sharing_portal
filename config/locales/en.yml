@@ -26,3 +26,29 @@ en:
     unlock:
       send: "Gửi lại hướng dẫn mở khóa"
       dinnt: "Không nhận được hướng dẫn mở khóa?"
+    email: "Email"
+    password: "Mật khẩu"
+    remember: "Lưu đăng nhập"
+    forgot: "Quên mật khẩu?"
+    back: "Quay lại"
+    sure: "Bạn có chắc không?"
+    login:
+      title: "Đăng Nhập"
+      provider: "Đăng nhập bằng %{provider}"
+    signup:
+      title: "Đăng ký"
+      minimum: "ít nhất %{number} kí tự"
+      confirm: "xác nhận mật khẩu"
+    logout:
+      title: "Đăng xuất"
+    registration:
+      edit: "Chỉnh sửa"
+      waiting_confirmation: "Tài khoản: %{email} đang chờ xác nhận"
+      notice_blank: "để trống nếu bạn không muốn thay đổi nó"
+      notice_confirm: "bạn cần xác nhận mật khẩu hiện tại để có thể thay đổi"
+      update: "Cập nhật"
+      current_password: "mật khẩu hiện tại"
+      cancel: "Hủy tài khoản của tôi"
+  static_pages:
+    home:
+      title: "Trang chủ"

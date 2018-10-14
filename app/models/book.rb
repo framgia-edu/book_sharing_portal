@@ -5,7 +5,8 @@ class Book < ApplicationRecord
   has_many :reviews
   has_many :lists
   has_many :authors, through: :lists, source: :info, source_type: Author.name
-  has_many :categories, through: :lists, source: :info, source_type: Category.name
+  has_many :categories, through: :lists, source: :info,
+    source_type: Category.name
   has_many :borrowers, through: :borrows, source: :user
   has_many :reviewers, through: :reviews, source: :user
   has_many :bookmarkers, through: :bookmarks, source: :user
