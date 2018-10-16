@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   has_many :borrowers, through: :borrows, source: :user
   has_many :reviewers, through: :reviews, source: :user
   has_many :bookmarkers, through: :bookmarks, source: :user
-
+  enum status: [inactive: 0, active: 1]
   def add_author author
     authors << author
   end
