@@ -5,6 +5,7 @@ ruby "2.5.1"
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.1.3"
+gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
@@ -12,6 +13,7 @@ gem "faker"
 gem "instagram"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails", "~> 4.3", ">= 4.3.3"
+gem "lazyload-rails"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
@@ -25,9 +27,6 @@ gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "twitter"
 gem "uglifier", ">= 1.3.0"
-gem "lazyload-rails"
-gem "config"
-gem "mysql2", "~> 0.4.4"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

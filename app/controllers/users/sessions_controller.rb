@@ -1,23 +1,23 @@
 class Users::SessionsController < Devise::SessionsController
-  #before_action :authenticate_user!
-  #before_action :configure_sign_in_params, only: [:create]
+  # before_action :authenticate_user!
+  # before_action :configure_sign_in_params, only: [:create]
 
-  #def new
+  # def new
   #  super
-  #end
+  # end
 
-  #def create
+  # def create
   #  super
-  #end
+  # end
 
-  #def destroy
+  # def destroy
   #  super
-  #end
+  # end
 
-  #protected
+  # protected
 
-  #def configure_sign_in_params
+  # def configure_sign_in_params
   #  devise_parameter_sanitizer.permit :sign_in, keys: [:email, :password,
   #    :remember_me]
-  #end
+  # end
 end
