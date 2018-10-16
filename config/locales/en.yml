@@ -52,3 +52,11 @@ en:
   static_pages:
     home:
       title: "Trang chủ"
+  layouts: 
+    header:
+      logo: "BookSharing"
+      home: "Home"
+      tutorials: "Tutorials"
+      articles: "Acticles"
+      about: "About me"
+      contact: "Contact"

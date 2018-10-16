@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_10_13_114735) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "books", force: :cascade do |t|
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "introduce"
     t.string "cover"
@@ -28,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_114735) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
-  create_table "borrows", force: :cascade do |t|
+  create_table "borrows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "borrow_at"
     t.date "deadline_at"
     t.integer "status", default: 0, null: false
@@ -40,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_114735) do
     t.index ["user_id"], name: "index_borrows_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "status", default: 1, null: false
@@ -48,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_114735) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "interactions", force: :cascade do |t|
+  create_table "interactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "rating"
     t.string "comment"
     t.string "type", null: false
@@ -60,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_114735) do
     t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
-  create_table "lists", force: :cascade do |t|
+  create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "info_type"
     t.bigint "info_id"
     t.bigint "book_id"
@@ -71,7 +68,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_114735) do
     t.index ["info_type", "info_id"], name: "index_lists_on_info_type_and_info_id"
   end
 
-  create_table "people", force: :cascade do |t|
+  create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "avatar"
     t.string "address"

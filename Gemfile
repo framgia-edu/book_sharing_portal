@@ -27,6 +27,7 @@ gem "twitter"
 gem "uglifier", ">= 1.3.0"
 gem "lazyload-rails"
 gem "config"
+gem "mysql2", "~> 0.4.4"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
