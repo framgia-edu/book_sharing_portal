@@ -1,6 +1,40 @@
 en:
   users:
+    password:
+      send: "Gửi cho tôi hướng dẫn đặt lại mật khẩu"
+      forgot: "Quên mật khẩu?"
+    unlock:
+      send: "Gửi lại hướng dẫn mở khóa"
+      didnt: "Không nhận được hướng dẫn mở khóa?"
+    email: "Email"
+    password: "Mật khẩu"
+    remember: "Lưu đăng nhập"
+    forgot: "Quên mật khẩu?"
+    back: "Quay lại"
+    sure: "Bạn có chắc không?"
+    name: "Tên tài khoản"
+    avatar: "Ảnh đại diện"
+    upload: "Đăng sách"
+    login:
+      title: "Đăng Nhập"
+      provider: "Đăng nhập bằng %{provider}"
+    signup:
+      title: "Đăng ký"
+      minimum: "ít nhất %{number} kí tự"
+      confirm: "xác nhận mật khẩu"
+    logout:
+      title: "Đăng xuất"
+    registration:
+      edit: "Chỉnh sửa"
+      waiting_confirmation: "Tài khoản: %{email} đang chờ xác nhận"
+      notice_blank: "để trống nếu bạn không muốn thay đổi nó"
+      notice_confirm: "bạn cần xác nhận mật khẩu hiện tại để có thể thay đổi"
+      update: "Cập nhật"
+      current_password: "mật khẩu hiện tại"
+      cancel: "Hủy tài khoản"
+      reconfirm: "Không nhận được hướng dẫn xác nhận?"
     confirmation:
+      title: "Gửi lại hướng dẫn xác nhận"
       resend: "Gửi lại hướng dẫn xác nhận"
       didnt: "Không nhận được hướng dẫn xác nhận?"
       notice: "Bạn có thể xác nhận email tài khoản của mình thông qua liên kết
@@ -20,36 +54,7 @@ en:
       skip: "Nếu bạn không yêu cầu điều này, vui lòng bỏ qua email này."
       notice_change_3: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy
         cập vào liên kết ở trên và tạo một mật khẩu mới."
-    password:
-      send: "Gửi cho tôi hướng dẫn đặt lại mật khẩu"
-      forgot: "Quên mật khẩu?"
-    unlock:
-      send: "Gửi lại hướng dẫn mở khóa"
-      dinnt: "Không nhận được hướng dẫn mở khóa?"
-    email: "Email"
-    password: "Mật khẩu"
-    remember: "Lưu đăng nhập"
-    forgot: "Quên mật khẩu?"
-    back: "Quay lại"
-    sure: "Bạn có chắc không?"
-    login:
-      title: "Đăng Nhập"
-      provider: "Đăng nhập bằng %{provider}"
-    signup:
-      title: "Đăng ký"
-      minimum: "ít nhất %{number} kí tự"
-      confirm: "xác nhận mật khẩu"
-    logout:
-      title: "Đăng xuất"
-    registration:
-      edit: "Chỉnh sửa"
-      waiting_confirmation: "Tài khoản: %{email} đang chờ xác nhận"
-      notice_blank: "để trống nếu bạn không muốn thay đổi nó"
-      notice_confirm: "bạn cần xác nhận mật khẩu hiện tại để có thể thay đổi"
-      update: "Cập nhật"
-      current_password: "mật khẩu hiện tại"
-      cancel: "Hủy tài khoản của tôi"
-  static_pages:
+  static_page:
     home:
       title: "Trang chủ"
   layouts: 
