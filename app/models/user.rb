@@ -1,7 +1,7 @@
 class User < Person
-  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2,
-   :twitter]
-  devise :database_authenticatable, :registerable,
+  devise :omniauthable, omniauth_providers: [:facebook, :twitter,
+    :google_oauth2]
+  devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :validatable
   has_many :borrows
   has_many :books
@@ -10,6 +10,8 @@ class User < Person
   has_many :borrow_books, through: :borrows, source: :book
   has_many :mark_books, through: :bookmarks, source: :book
   has_many :review_books, through: :reviews, source: :book
+  enum status: [whitelist: 1, blacklist: 0]
+  mount_uploader :avatar, AvatarUploader
 
   def add_bookmark book
     mark_books << book
@@ -46,5 +48,14 @@ class User < Person
 
   def borrow_exist? book
     borrow_books.include? book
+  end
+
+  def self.from_omniauth auth
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      user.avatar = auth.info.image
+    end
   end
 end
