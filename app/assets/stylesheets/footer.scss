@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact {
+  width: 300px;
+  margin: auto;
+}
+
+.social {
+  max-width: 300px;
+  margin: auto;
+}
+
+.social-list {
+  max-width: 300px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.social h3, .contact h3 {
+  font-family: 'Open Sans', Sans Serif;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  background-color: #34495e;
+  background-image: url(http://www.transparenttextures.com/patterns/escheresque.png);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 0 5px 0;
+  color: #fff;
+  
+}
+
+.social-btn {
+  text-align: center;
+  border: none;
+  color: #bdc3c7;
+  width: 60px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all .3s ease-out;
+  padding: 0 3px 5px 3px;
+  margin: 5px 5px 5px 5px;
+  font-family: 'Roboto Condensed', Sans Serif;
+}
+
+.social-btn:hover {
+  color: #34495e;
+  -webkit-filter: drop-shadow(0 0 2px #34495e);
+
+}
+
+.social-btn:focus {
+  outline: 0;
+}
